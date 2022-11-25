@@ -1,20 +1,10 @@
 <ntap-header></ntap-header>
 <div class="container">
     <ul class="list-group">
-        <li class="list-group-item">
-            <p>Título: WhatsApp</p>
-            <p>Subtítulo: Novas mensagens.</p>
-            <p>Data: 25/11/2022 20h00</p>
-        </li>
-        <li class="list-group-item">
-            <p>Título: Intagram</p>
-            <p>Subtítulo: Novo reel.</p>
-            <p>Data: 25/11/2022 19h00</p>
-        </li>
-        <li class="list-group-item">
-            <p>Título: YouTube</p>
-            <p>Subtítulo: Novo vídeo.</p>
-            <p>Data: 25/11/2022 20h30</p>
+        <li *ngFor="let notif of notificacoes" class="list-group-item">
+            <p>Título: {{ notif.titulo }}</p>
+            <p>Subtítulo: {{ notif.subtitulo }}</p>
+            <p>Data: {{ notif.data }}</p>
         </li>
     </ul>
 </div>
