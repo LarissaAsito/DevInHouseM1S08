@@ -1,10 +1,11 @@
 <ntap-header></ntap-header>
 <div class="container">
     <ul class="list-group">
-        <li *ngFor="let notif of notificacoes" class="list-group-item">
+        <li *ngFor="let notif of notificacoes" [ngClass]="notif.lido ? 'lido' : ''" class="list-group-item">
             <p>Título: {{ notif.titulo }}</p>
             <p>Subtítulo: {{ notif.subtitulo }}</p>
             <p>Data: {{ notif.data }}</p>
+            <button (click)="lerNotificacao(notif)" type="button" class="btn btn-outline-primary">Visualizar</button>
         </li>
     </ul>
 </div>

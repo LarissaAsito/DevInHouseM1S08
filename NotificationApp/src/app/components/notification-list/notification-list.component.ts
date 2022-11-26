@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NOTIFICATIONS } from 'src/app/mockts/notifications';
+import { Notification } from 'src/app/models/notification';
 
 @Component({
   selector: 'ntap-notification-list',
@@ -6,21 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./notification-list.component.scss']
 })
 export class NotificationListComponent {
-  notificacoes = [
-    {
-      titulo: 'WhatsApp',
-      subtitulo: 'Novas mensagens.',
-      data: '25/11/2022 20h00'
-    },
-    {
-      titulo: 'Intagram',
-      subtitulo: 'Novo reel.',
-      data: '25/11/2022 19h00'
-    },
-    {
-      titulo: 'YouTube',
-      subtitulo: 'Novo vídeo.',
-      data: '25/11/2022 20h30'
-    }
-  ]
+  notificacoes: Notification[] = NOTIFICATIONS;
+
+  lerNotificacao(item: Notification): void {
+    item.lido = true;
+  }
 }
