@@ -9,6 +9,7 @@ import { Notification } from 'src/app/models/notification';
 })
 export class NotificationListComponent {
   notificacoes: Notification[] = NOTIFICATIONS;
+  botoes: string[] = ['Todos', 'Lidos', 'Não lidos'];
 
   lerNotificacao(item: Notification): void {
     item.lido = true;

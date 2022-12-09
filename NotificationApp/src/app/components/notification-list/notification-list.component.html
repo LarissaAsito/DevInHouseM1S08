@@ -1,5 +1,11 @@
 <ntap-header></ntap-header>
 <div class="container">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button *ngFor="let botao of botoes" type="button" class="btn btn-secondary">
+            {{ botao }}
+        </button>
+    </div>
+    <hr>
     <ul class="list-group">
         <li *ngFor="let notif of notificacoes" [ngClass]="notif.lido ? 'lido' : ''" class="list-group-item">
             <p>Título: {{ notif.titulo }}</p>
