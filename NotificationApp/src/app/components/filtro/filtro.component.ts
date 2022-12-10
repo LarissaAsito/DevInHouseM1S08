@@ -10,7 +10,6 @@ export class FiltroComponent {
   @Output() botaoFiltro = new EventEmitter<string>();
 
   filtrar(tipo: string) {
-    console.log(tipo);
     this.botaoFiltro.emit(tipo);
   }
 }
