@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NOTIFICATIONS } from 'src/app/mockts/notifications';
 import { Notification } from 'src/app/models/notification';
 
@@ -9,12 +10,35 @@ import { Notification } from 'src/app/models/notification';
 })
 export class NotificationListComponent implements OnInit{
   notificacoes: Notification[] = NOTIFICATIONS;
+
+  notificacoesFiltradas: Notification[] = [];
+
+  filtroPassado = '';
   
-  constructor(){
+  constructor(private router: Router, private route: ActivatedRoute){
 
   }
   ngOnInit() {
+    this.route.params.subscribe((params)=>{
+      this.filtroPassado = params['filtro']
 
+      this.notificacoesFiltradas = []
+      this.notificacoes.forEach(notificacao => {
+        if (this.filtroPassado === 'lidos') {
+          if (notificacao.lido) {
+            this.notificacoesFiltradas.push(notificacao)
+          }
+        }
+        if (this.filtroPassado === 'nao-lidos') {
+          if(!notificacao.lido) {
+            this.notificacoesFiltradas.push(notificacao)
+          }
+        }
+        if (this.filtroPassado === 'todos') {
+          this.notificacoesFiltradas = [...this.notificacoes]
+        }
+      })
+    })
   }
 
   lerNotificacao(item: Notification): void {
@@ -22,6 +46,15 @@ export class NotificationListComponent implements OnInit{
   }
 
   filtrarNotificacoes(event: any) {
-    console.log(event);
+    if (event === 'Todos'){
+      event = 'todos';
+    } else if (event === 'Lidos'){
+      event = 'lidos';
+    } else if (event === 'Não lidos'){
+      event = 'nao-lidos';
+    } else {
+      event = '';
+    }
+    this.router.navigate(['/home/' + event])
   }
 }

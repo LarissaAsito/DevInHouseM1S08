@@ -21,15 +21,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'home/todos',
-    component: HomeComponent
-  },
-  {
-    path: 'home/lidos',
-    component: HomeComponent
-  },
-  {
-    path: 'home/nao-lidos',
+    path: 'home/:filtro',
     component: HomeComponent
   },
   {
