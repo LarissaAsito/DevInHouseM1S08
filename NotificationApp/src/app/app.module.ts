@@ -8,7 +8,35 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
+import { Routes } from '@angular/router';
 
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'home/todos',
+    component: HomeComponent
+  },
+  {
+    path: 'home/lidos',
+    component: HomeComponent
+  },
+  {
+    path: 'home/nao-lidos',
+    component: HomeComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  }
+];
 @NgModule({
   declarations: [
     AppComponent,
