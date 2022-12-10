@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FiltroComponent } from './components/filtro/filtro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotificationListComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule
