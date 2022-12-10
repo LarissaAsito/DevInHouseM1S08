@@ -1,5 +1,5 @@
 <div class="container">
-    <ntap-filtro></ntap-filtro>
+    <ntap-filtro (filter)="filtrarNotificacoes($event)"></ntap-filtro>
     <hr>
     <ul class="list-group">
         <li *ngFor="let notif of notificacoes" [ngClass]="notif.lido ? 'lido' : ''" class="list-group-item">

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NOTIFICATIONS } from 'src/app/mockts/notifications';
 import { Notification } from 'src/app/models/notification';
 
@@ -7,11 +7,21 @@ import { Notification } from 'src/app/models/notification';
   templateUrl: './notification-list.component.html',
   styleUrls: ['./notification-list.component.scss']
 })
-export class NotificationListComponent {
+export class NotificationListComponent implements OnInit{
   notificacoes: Notification[] = NOTIFICATIONS;
   
+  constructor(){
+
+  }
+  ngOnInit() {
+
+  }
 
   lerNotificacao(item: Notification): void {
     item.lido = true;
+  }
+
+  filtrarNotificacoes(event: any) {
+    console.log(event);
   }
 }
